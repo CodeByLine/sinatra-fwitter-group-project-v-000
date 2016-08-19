@@ -1,0 +1,8 @@
+<h1> Tweets by <%= @user.username %>:</h1>
+
+<%= @tweet.content %> <BR><BR>
+
+
+    <a href="/tweets/<%=@tweet.id%>/edit">Edit</a><BR>
+    <a href="/tweets/<%=@tweet.id%>/delete">Delete </a><BR>
+<a href = '/tweets'> Return to All My Tweets </a>

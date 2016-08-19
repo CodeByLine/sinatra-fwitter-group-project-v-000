@@ -1,14 +1,16 @@
-<h1>Tweets </h1>
-<h1>Welcome, <%=@user.username%>.</h1>
-<br />
-<br />
-<h3>Tweets</h3>
-<%@tweets.each do |tweet|%>
-  <%=tweet.user.username%>: <a href="/tweets/<%=tweet.id%>"><%=tweet.content%></a>
-<%end%>
-<br />
-<br />
-<br />
-<a href='/tweets/new'>New Tweet</a>
-<br />
-<a href="/logout">Logout</a>
+<h1>Welcome, <%= @user.username %></h1>
+
+<% @tweets.each do |tweet| %>
+  <%= tweet.content %> <BR>
+
+<form method='update' action="/tweets/<%=tweet.id%>/edit">
+  <input type="submit" value="edit"> </form>
+
+
+<form method="post" action="/tweets/<%=tweet.id%>/delete">
+  <input type="hidden" name="_method" value="patch" id="hidden">
+  <input data-confirm='Are you sure?' type="submit" value="delete tweet" > </form>
+
+<% end %> <BR>
+<h2><a href='/tweets/new'> Create a New Tweet </a></h2>
+<a href = '/logout'> Logout </a>

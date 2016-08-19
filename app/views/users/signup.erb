@@ -1,16 +1,12 @@
-<h1>Sign UP</h1>
-<h1>Create User Profile </h1>
+<h1>Create a profile</h1>
 
-<br />
-<br />
-<h3>Sign Up</h3>
-<form action='/signup' method='POST'>
-  <label>Username: <input type='text' name='username' id='username' /></label>
-  <br />
-  <label>Email: <input type='text' name='email' id='user_email' /></label>
-  <br />
-  <label>Password: <input type='text' name='password' /></label>
-  <br />
-  <br />
-  <input type="submit" value="Submit">
+<form action='/signup' method="POST">
+
+  <label for="username">Name:</label>
+  <input name="username" type="text" name="username" />
+  <label for="email">Email:</label>
+  <input name="email" type="text" name="email[user]" />
+  <label for="password"> Password:</label>
+  <input name="password" type="text" name="password[user]" />
+  <button type="submit" value="submit">Submit</button>
 </form>

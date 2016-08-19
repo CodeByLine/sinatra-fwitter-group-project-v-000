@@ -1,11 +1,11 @@
-<h1>Show User</h1>
+<h1>Show here</h1>
 
 <% @tweets.each do |tweet| %>
-
-<%= @user = User.find_by_id(tweet.user_id) %>
+<% @user = User.find_by_id(tweet.user_id) %>
 <%= @user.username %>
-<%= tweet.content %> <BR>
-<% end %> <BR>
+  <%= tweet.content %> <BR>
+    <% end %> <BR>
 
-<h2><a href='/tweets/new' Create a New Tweet </a></h2>
-  <a href = '/logout'> Logout </a>
+<h2><a href='/tweets/new'> Create a New Tweet </a></h2>
+
+<a href = '/logout'> Logout </a>
