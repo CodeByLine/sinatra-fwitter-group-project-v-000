@@ -1,4 +1,4 @@
-class CreateTweets < ActiveRecord::Migration
+class CreateUsers < ActiveRecord::Migration
   def change
     create_table 'users' do |t|
       t.string  'content'

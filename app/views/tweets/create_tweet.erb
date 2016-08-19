@@ -1,9 +1,11 @@
 <h2>New Tweet</h2>
 <br />
 <br />
-<form action='/tweets' method='POST'>
-  <label>Tweet: <input type='text' name='content' id='content' /></label>
-  <br />
-  <br />
-  <input class="btn btn-primary" type="submit" value="submit">
+
+<form action='/tweets' method ='POST'>
+
+  <label for='content'>Content:</label>
+  <input type="textarea" name="content" />
+  <button type='submit' value='submit'>Submit</button>
+
 </form>
