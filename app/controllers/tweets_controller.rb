@@ -48,7 +48,7 @@ class TweetsController < ApplicationController
       if @tweet.user_id == session[:user_id] && !@tweet.content.empty?
         erb:'/tweets/edit'
       else
-        redirect '/tweets'
+        redirect '/tweets/show' #redirect '/tweets'
       end
     else
       redirect '/login'
