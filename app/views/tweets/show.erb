@@ -3,6 +3,11 @@
 <%= @tweet.content %> <BR><BR>
 
 
-    <a href="/tweets/<%=@tweet.id%>/edit">Edit</a><BR>
-    <a href="/tweets/<%=@tweet.id%>/delete">Delete </a><BR>
+
+      <form method='update' action="/tweets/<%=@tweet.id%>/edit">
+        <input type="submit" value="Edit Tweet"> </form>
+
+    <form method="post" action="/tweets/<%=@tweet.id%>/delete"> <BR>
+      <input type="hidden" name="_method" value="delete" id="hidden">
+      <input data-confirm='Are you sure?' type="submit" value="Delete Tweet" > </form>
 <a href = '/tweets'> Return to All My Tweets </a>

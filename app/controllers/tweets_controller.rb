@@ -34,6 +34,7 @@ class TweetsController < ApplicationController
 
   get '/tweets/:id' do
     if !!session[:user_id]
+      @user = User.find_by_id(session[:user_id])
       @tweet = Tweet.find_by_id(params[:id])
       erb :'/tweets/show'
     else
@@ -63,7 +64,7 @@ class TweetsController < ApplicationController
      redirect '/tweets'
   end
 
-  patch '/tweets/:id/delete' do
+  delete '/tweets/:id/delete' do
     @tweet = Tweet.find_by_id(params[:id])
       if session[:user_id]
         @user = User.find_by_id(params[:id])
