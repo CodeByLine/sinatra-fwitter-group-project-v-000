@@ -2,8 +2,8 @@ class TweetsController < ApplicationController
 
   get '/tweets' do
     if session[:user_id]
-      @user = @current_user
-      @user = User.find(session[:user_id])
+      # @user = @current_user
+      @user = User.find_by_id(session[:user_id])
       @tweets = @user.tweets.all
       erb :'tweets/tweets'
     else
@@ -22,7 +22,7 @@ class TweetsController < ApplicationController
 
   post '/tweets' do
     if params[:content] == ""
-      redirect "/tweets/create_tweet"
+      redirect "/tweets/new"
     else
       @user = User.find(session[:user_id])
       @tweet = Tweet.create(:content => params[:content], :user_id => params[ @user.id])
@@ -32,7 +32,7 @@ class TweetsController < ApplicationController
   end
 
   get '/tweets/:id' do
-    if !!session[:user_id]
+    if session[:user_id]
       @user = User.find_by_id(session[:user_id])
       @tweet = Tweet.find_by_id(params[:id])
       erb :'tweets/show_tweet'
